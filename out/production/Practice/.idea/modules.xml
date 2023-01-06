@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataStructureAndAlgorithm/DataStructureAndAlgorithm.iml" filepath="$PROJECT_DIR$/DataStructureAndAlgorithm/DataStructureAndAlgorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice.iml" filepath="$PROJECT_DIR$/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice10_InternetProgramming/Practice10_InternetProgramming.iml" filepath="$PROJECT_DIR$/Practice10_InternetProgramming/Practice10_InternetProgramming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice11_Reflection/Practice11_Reflection.iml" filepath="$PROJECT_DIR$/Practice11_Reflection/Practice11_Reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice12_Java8NewFeature/Practice12_Java8NewFeature.iml" filepath="$PROJECT_DIR$/Practice12_Java8NewFeature/Practice12_Java8NewFeature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice13_JDBC/Practice13_JDBC.iml" filepath="$PROJECT_DIR$/Practice13_JDBC/Practice13_JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice14_Swing/Practice14_Swing.iml" filepath="$PROJECT_DIR$/Practice14_Swing/Practice14_Swing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice15_RegularExpression/Practice15_RegularExpression.iml" filepath="$PROJECT_DIR$/Practice15_RegularExpression/Practice15_RegularExpression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice1_Thread/Practice1_Thread.iml" filepath="$PROJECT_DIR$/Practice1_Thread/Practice1_Thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice2_String/Practice2_String.iml" filepath="$PROJECT_DIR$/Practice2_String/Practice2_String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice3_Enumeration/Practice3_Enumeration.iml" filepath="$PROJECT_DIR$/Practice3_Enumeration/Practice3_Enumeration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice4_Annotation/Practice4_Annotation.iml" filepath="$PROJECT_DIR$/Practice4_Annotation/Practice4_Annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice5_Collection/Practice5_Collection.iml" filepath="$PROJECT_DIR$/Practice5_Collection/Practice5_Collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice6_Time/Practice6_Time.iml" filepath="$PROJECT_DIR$/Practice6_Time/Practice6_Time.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice7_Comparable/Practice7_Comparable.iml" filepath="$PROJECT_DIR$/Practice7_Comparable/Practice7_Comparable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice8_Generic/Practice8_Generic.iml" filepath="$PROJECT_DIR$/Practice8_Generic/Practice8_Generic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice9_IO/Practice9_IO.iml" filepath="$PROJECT_DIR$/Practice9_IO/Practice9_IO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeProject2/PracticeProject2.iml" filepath="$PROJECT_DIR$/PracticeProject2/PracticeProject2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeProject3/PracticeProject3.iml" filepath="$PROJECT_DIR$/PracticeProject3/PracticeProject3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeProject_MHL/PracticeProject_MHL.iml" filepath="$PROJECT_DIR$/PracticeProject_MHL/PracticeProject_MHL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice_oop/Practice_oop.iml" filepath="$PROJECT_DIR$/Practice_oop/Practice_oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcodepractice/leetcodepractice.iml" filepath="$PROJECT_DIR$/leetcodepractice/leetcodepractice.iml" />
+    </modules>
+  </component>
+</project>
