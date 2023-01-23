@@ -89,18 +89,18 @@ public class ShellSort {
         //定义增量int
         int gap = nums.length;
         while (true) {
-            if(gap == 1){//当增量为1时 数组为一个完整的有序的数组
+            if (gap == 1) {//当增量为1时 数组为一个完整的有序的数组
                 break;
             }
             //增量缩减
             gap = gap >> 1;//每次缩减为原本的二分之一
             //按照增量进行分组
-            for(int i = 0;i < gap;i++){
+            for (int i = 0; i < gap; i++) {
                 //对每组进行简单插入排序
-                for(int j = i;j < nums.length - gap;j+=gap){
+                for (int j = i; j < nums.length - gap; j += gap) {
                     int sortedLast = j;//有序的末尾元素位置
                     int first = nums[j + gap];//无序的首元素
-                    while(sortedLast >= i && nums[sortedLast] >= first){
+                    while (sortedLast >= i && nums[sortedLast] >= first) {
                         nums[sortedLast + gap] = nums[sortedLast];//若大于待插入元素 则后移
                         sortedLast -= gap;//有序段向前指
                     }
@@ -118,34 +118,38 @@ public class ShellSort {
     }
 
     @Test
-    public void test4(){
+    public void test4() {
         int[] nums = new int[]{-12, 56, 25, 98, 33, -65, 1, 3, 4, 6, -5, -999, 15, 2, 25, 33, 17};
         //ShellSort
-        int gap = nums.length;//增量
+        //关键就是增量缩减
+        //定义增量
+        int gap = nums.length;
         while(true){
-            if(gap == 1){
+            gap = gap >> 1;
+            for (int i = 0; i < gap; i++) {
+                for (int j = i; j < nums.length - gap; j += gap) {
+                    int preNum = j;
+                    int current = nums[j + gap];
+                    while (preNum >= i && nums[preNum] > current){
+                        nums[preNum + gap] = nums[preNum];
+                        preNum -= gap;
+                    }
+                    nums[preNum + gap] = current;
+                }
+
+            }
+            if(1 == gap){
                 break;
             }
-            gap = gap >> 1;//增量缩减 每次缩减为原来的二分之一
-            //根据增量进行分组
-            for (int i = 0; i < gap; i++) {
-                //对每一组进行直接插入排序
-                for (int j = i; j < nums.length - gap; j += gap) {
-                    int end = j;//有序部分的末尾元素索引
-                    int first = nums[j + gap];//待插入元素 无序部分的首元素
-                    while(end >= i && nums[end] >= first){
-                        nums[end + gap] = nums[end];
-                        end -= gap;
-                    }
-                    nums[end + gap] = first;
-                }
-            }
         }
-        //遍历输出ShellSort后的数组
         for (int num :
                 nums) {
             System.out.println(num);
         }
     }
+
+
+
+
 }
 

@@ -43,7 +43,7 @@ public class InsertionSort {
      * 循环将无序段的首元素进行向有序段按序插入操作
      *      将无序段的首元素与有序段的元素进行比较 从有序段的末尾开始 一直到有序段的首元素停止
      *          若有序段的元素>=无序段的首元素 则将此有序段的元素向后移动一位 无序段的首元素继续和有序段的后续元素进行比较
-     *          若遇到有序段的元素<无序段的首元素 则将此无序段的元素赋值于此有序段的元素后一位即可
+     *          若遇到有序段的元素 < 无序段的首元素 则将此无序段的元素赋值于此有序段的元素后一位即可
      */
     @Test
     public void test2(){
@@ -67,26 +67,21 @@ public class InsertionSort {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         int[] nums = new int[]{-5, -8, -6, 8, -5, 9, -45, 6, 45, 91, 2, -9, 2, -8};
         //InsertSort
         for (int i = 0; i < nums.length - 1; i++) {
-            int end = i;//有序部分的末尾元素索引
-            int first = nums[i + 1];//无序部分的首元素 即待插入元素
-            for (int j = i; j < nums.length - 1; j++) {
-                while(end >= 0 && nums[end] >= first){
-                    nums[end + 1] = nums[end];
-                    end--;
-                }
-                nums[end + 1] = first;
+            int preNum = i;//无序段的末尾元素的索引
+            int current = nums[preNum + 1];//有序段的首元素
+            while(preNum >= 0 && nums[preNum] > current){
+                nums[preNum + 1] = nums[preNum--];
             }
+            nums[preNum + 1] = current;
         }
-        //InsertSort后的数组进行输出
-        for (int num :
+        for (int item :
                 nums) {
-            System.out.println(num);
+            System.out.println(item);
         }
-
     }
 
 }

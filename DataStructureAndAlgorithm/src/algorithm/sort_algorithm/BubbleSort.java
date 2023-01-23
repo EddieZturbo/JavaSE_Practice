@@ -153,4 +153,23 @@ public class BubbleSort {
             System.out.println(num);
         }
     }
+    @Test
+    public void test7(){
+        //bubbleSort
+        int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 0; j < nums.length - 1 - i; j++) {
+                if(nums[j] > nums[j + 1]){
+                    int tem = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tem;
+                }
+            }
+        }
+        for (int item :
+                nums) {
+            System.out.println(item);
+        }
+
+    }
 }

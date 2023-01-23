@@ -37,30 +37,31 @@ import java.util.*;
  */
 public class HashMapTest {
     @Test
-    public void test1(){
-        Map<String,Integer> map = new HashMap<String,Integer>();
-        map.put("key1",1);
-        map.put("key2",2);
-        map.put("key3",3);
-        map.put("key4",4);
+    public void test1() {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("key1", 1);
+        map.put("key2", 2);
+        map.put("key2", 22);
+        map.put("key3", 3);
+        map.put("key4", 4);
 //        map.put();
         //遍历key--使用上泛型
         Set<String> keySet = map.keySet();
         Iterator<String> iterator1 = keySet.iterator();
-        while(iterator1.hasNext()){
+        while (iterator1.hasNext()) {
             System.out.println(iterator1.next());
         }
         //遍历value--使用上泛型
         Collection<Integer> valueCollection = map.values();
         Iterator<Integer> iterator2 = valueCollection.iterator();
-        for(Integer values : valueCollection){
+        for (Integer values : valueCollection) {
             System.out.println(values);
         }
         //遍历entry--使用上泛型☆嵌套泛型
-        Set<Map.Entry<String,Integer>> entrySet = map.entrySet();
-        Iterator<Map.Entry<String,Integer>> entryIterator = entrySet.iterator();
+        Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
+        Iterator<Map.Entry<String, Integer>> entryIterator = entrySet.iterator();
         while (entryIterator.hasNext()) {
-            Map.Entry<String,Integer> stringIntegerEntry = entryIterator.next();
+            Map.Entry<String, Integer> stringIntegerEntry = entryIterator.next();
             String key = stringIntegerEntry.getKey();
             Integer value = stringIntegerEntry.getValue();
             System.out.println(key + "-->" + value);
@@ -68,22 +69,21 @@ public class HashMapTest {
 
         System.out.println("----------------------------------------------------------------");
         System.out.println("foreach遍历map");
-        for (Map.Entry<String,Integer> entry: map.entrySet()
-             ) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()
+        ) {
             System.out.println(entry);
             System.out.println(entry.getKey());
             System.out.println(entry.getValue());
         }
         System.out.println();
-        for (String keys : map.keySet()){
+        for (String keys : map.keySet()) {
             System.out.println(keys);
         }
         System.out.println();
-        for (Integer values:
-             map.values()) {
+        for (Integer values :
+                map.values()) {
             System.out.println(values);
         }
-
 
 
     }

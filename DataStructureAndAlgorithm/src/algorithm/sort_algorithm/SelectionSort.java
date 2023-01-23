@@ -64,19 +64,18 @@ public class SelectionSort {
     public void test3() {
         int[] nums = new int[]{-5, -89, -6, -8, 5, 9, 45, 6, -596, -456, 888, -6, 9};
         //SelectSort
+        //每次选择出第i小的数 放在指定的第i个位置上
         for (int i = 0; i < nums.length; i++) {
-            int min = i;
-            for (int j = i ; j < nums.length; j++) {
-                if(nums[j] < nums[min]){
-                    min = j;//遍历数组的元素找到最小的元素索引位置
+            int position = i;
+            for (int j = i; j < nums.length; j++) {
+                if(nums[j] < nums[position]){
+                    position = j;//找到每一轮最小值的索引位置
                 }
             }
-            //将找寻到的最小元素依次放置在数组的首位
-            int temp = nums[i];
-            nums[i] = nums[min];
-            nums[min] = temp;
+            int temp = nums[position];
+            nums[position] = nums[i];
+            nums[i] = temp;
         }
-        //遍历输出SelectSort后的数组
         for (int num :
                 nums) {
             System.out.println(num);
