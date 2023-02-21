@@ -20,44 +20,29 @@ public class QuickSort {
         }
     }
 
-    //定义基准 前后双指针寻找基准的准确位置
-    //基准将数组分成两段 左端不大于基准 右端不小于基准
-    //递归将基准的两段分别进行相同的操作
-    public void searchKey(int[] array, int left, int right) {
-        if (left >= right) {//递归终止条件
+    public void searchKey(int[] array,int leftIndex,int rightIndex){
+        if(leftIndex > rightIndex){
             return;
         }
-        //定义三个变量
-        int key = array[left];//指向基准的指针 默认为数组的最左侧
-        int leftIndex = left;
-        int rightIndex = right;
-        //左右指针相继向中间遍历
-        while (leftIndex != rightIndex) {
-            //由于基准在数组的左侧 因此 右侧指针先行遍历
-            while (leftIndex < rightIndex && array[rightIndex] >= key) {
-                //如果右侧指针遍历到的元素不小于基准 则继续向中间遍历 否则将其交换至左侧指针位置
-                rightIndex--;
+        int left = leftIndex;//数组的左侧指针
+        int right = rightIndex;//数组的右侧指针
+        int key = array[leftIndex];//基准 初始为数组的左侧元素
+        while(left != right){
+            while(left < right && array[right] >= key){
+                right--;
             }
-            array[leftIndex] = array[rightIndex];
-
-            while (leftIndex < rightIndex && array[leftIndex] <= key) {
-                //如果左侧的指针遍历到的元素不大于基准 则继续向中间遍历 否则将其交换至右侧指针位置
-                leftIndex++;
+            array[left] = array[right];
+            while(left < right && array[left] <= key){
+                left++;
             }
-            array[rightIndex] = array[leftIndex];
-
+            array[right] = array[left];
         }
-        //当左右指针相遇 表明找到基准的准确位置
-        array[leftIndex] = key;
+        //至此 left和right指针相遇时 为基准key的准确位置 将key赋值到准确的位置上
+        array[left] = key;
 
-
-        //递归
-        //基准的左段
-        searchKey(array, left, leftIndex - 1);
-        //基准的右段
-        searchKey(array, leftIndex + 1, right);
-
-
+        //分别对基准的左右两端进行递归快排
+        searchKey(array,leftIndex,left - 1);//基准的左侧
+        searchKey(array,leftIndex + 1,rightIndex);//基准的右侧
     }
 }
 

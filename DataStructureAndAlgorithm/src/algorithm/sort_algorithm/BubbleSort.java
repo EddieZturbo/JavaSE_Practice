@@ -116,6 +116,9 @@ public class BubbleSort {
                 }
             }
             border = theLastChange;//将最后一个交换的元素的位置 作为边界
+            if (flag) {
+                break;
+            }
         }
         for (int num :
                 nums) {
@@ -153,13 +156,14 @@ public class BubbleSort {
             System.out.println(num);
         }
     }
+
     @Test
-    public void test7(){
+    public void test7() {
         //bubbleSort
         int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = 0; j < nums.length - 1 - i; j++) {
-                if(nums[j] > nums[j + 1]){
+                if (nums[j] > nums[j + 1]) {
                     int tem = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tem;
@@ -172,4 +176,63 @@ public class BubbleSort {
         }
 
     }
+
+    /**
+     * doubleSort
+     */
+    @Test
+    public void test8() {
+        int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 0; j < nums.length - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+        for (int item :
+                nums) {
+            System.out.println(item);
+        }
+
+
+    }
+
+    /**
+     * bubbleSort
+     * eventually version
+     */
+    @Test
+    public void test9() {
+        int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
+        int lastChangeIndex = 0;
+        int border = nums.length - 1;
+        for (int i = 0; i < nums.length; i++) {
+            boolean flag = true;
+            for (int j = 0; j < border; j++) {
+                if(nums[j] > nums[j + 1]){
+                    flag = false;
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    lastChangeIndex = j;
+                }
+            }
+            border = lastChangeIndex;
+            if(flag){
+                break;
+            }
+        }
+        for (int item :
+                nums) {
+            System.out.println(item);
+        }
+
+
+
+    }
+
+
 }
