@@ -5,6 +5,8 @@ package collectionpractice;
  * @create 2022-08-13 16:03
  */
 
+import java.util.ArrayList;
+
 /**
  * Collection接口
  *  Collection接口：单列数据，定义了存取一组对象的方法的集合
@@ -36,5 +38,13 @@ package collectionpractice;
  *
  */
 public class CollectionTest {
+    public static void main(String[] args) {
+        ArrayList<Integer> integers = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            integers.add(i);
+        }
+        integers.add(11);
+
+    }
 
 }

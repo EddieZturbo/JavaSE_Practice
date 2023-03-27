@@ -20,13 +20,13 @@ public class QuickSort {
         }
     }
 
-    public void searchKey(int[] array,int leftIndex,int rightIndex){
-        if(leftIndex > rightIndex){
+    public void searchKey(int[] array, int leftIndex, int rightIndex) {
+        if(rightIndex < leftIndex){
             return;
         }
-        int left = leftIndex;//数组的左侧指针
-        int right = rightIndex;//数组的右侧指针
-        int key = array[leftIndex];//基准 初始为数组的左侧元素
+        int left = leftIndex;//数组的左端指针
+        int right = rightIndex;//数组的右端指针
+        int key = array[leftIndex];//基准 初始为数组的首元素
         while(left != right){
             while(left < right && array[right] >= key){
                 right--;
@@ -37,12 +37,12 @@ public class QuickSort {
             }
             array[right] = array[left];
         }
-        //至此 left和right指针相遇时 为基准key的准确位置 将key赋值到准确的位置上
+        //至此 当左右指针相遇的时候即为key的准确位置
         array[left] = key;
-
-        //分别对基准的左右两端进行递归快排
-        searchKey(array,leftIndex,left - 1);//基准的左侧
-        searchKey(array,leftIndex + 1,rightIndex);//基准的右侧
+        //分别对key的左右两侧进行递归快排
+        searchKey(array,leftIndex,left - 1);
+        searchKey(array,left + 1,rightIndex);
     }
+
 }
 
