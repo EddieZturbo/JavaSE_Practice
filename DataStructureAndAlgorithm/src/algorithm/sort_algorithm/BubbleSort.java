@@ -212,7 +212,7 @@ public class BubbleSort {
         for (int i = 0; i < nums.length; i++) {
             boolean flag = true;
             for (int j = 0; j < border; j++) {
-                if(nums[j] > nums[j + 1]){
+                if (nums[j] > nums[j + 1]) {
                     flag = false;
                     int temp = nums[j];
                     nums[j] = nums[j + 1];
@@ -221,7 +221,7 @@ public class BubbleSort {
                 }
             }
             border = lastChangeIndex;
-            if(flag){
+            if (flag) {
                 break;
             }
         }
@@ -231,6 +231,31 @@ public class BubbleSort {
         }
 
 
+    }
+
+    /**
+     * bubble sort
+     */
+    @Test
+    public void bubbleSortTest10() {
+        int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length - 1 - i; j++) {
+                if (nums[j + 1] < nums[j]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+        for (int item :
+                nums) {
+            System.out.println(item);
+        }
+        System.out.println("8888888888888888888888888888888888888");
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+        }
 
     }
 
