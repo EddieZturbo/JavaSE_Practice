@@ -239,24 +239,26 @@ public class BubbleSort {
     @Test
     public void bubbleSortTest10() {
         int[] nums = new int[]{12, 56, 855, -5, -55, 0, 15, 354, -986, 6566};
-        for (int i = 0; i < nums.length; i++) {
+        int lastChangeIndex;//最后一次进行交换的索引位置
+        int bounderIndex;
+        for (int i = 0; i < nums.length - 1; i++) {
+            boolean flag = true;//每次外层大循环后判断是否有进行交换 若一个循环下来未进行交换则表明已经有序了则无需后续循环操作
             for (int j = 0; j < nums.length - 1 - i; j++) {
                 if (nums[j + 1] < nums[j]) {
+                    flag = false;
                     int temp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = temp;
                 }
+            }
+            if (flag) {
+                break;//结束循环
             }
         }
         for (int item :
                 nums) {
             System.out.println(item);
         }
-        System.out.println("8888888888888888888888888888888888888");
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println(nums[i]);
-        }
-
     }
 
 

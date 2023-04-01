@@ -23,23 +23,25 @@ public class BinarySearch {
     public void test1() {
         int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.binarySearch(nums, 0, nums.length - 1, 10));
+        System.out.println(binarySearch.binarySearch(nums, 0, nums.length - 1, 9));
         System.out.println(binarySearch.binarySearch(nums, 6));
     }
 
     //递归方法
     public int binarySearch(int[] nums, int left, int right, int value) {
-        if (left > right) {
+        if(left > right){//递归结束条件
             return -1;
         }
-
-        int mid = (left + right) / 2;
-        if (nums[mid] == value) {
+        int mid = ((right - left) / 2) + left;
+        if(nums[mid] == value){
+            //找到了
             return mid;
-        } else if (value < nums[mid]) {
-            return binarySearch(nums, left, mid - 1, value);
-        } else {
-            return binarySearch(nums, mid + 1, right, value);
+        }else if(nums[mid] < value){
+            //值在数组的右岸
+            return binarySearch(nums,mid + 1,right,value);
+        }else{
+            //值在数组的左岸
+            return binarySearch(nums,left,mid - 1,value);
         }
     }
 
