@@ -15,11 +15,12 @@ import java.net.Socket;
  */
 public class MultiServer1 {
     public static void main(String[] args) throws Exception {
-        MyThreadPool myThreadPool = new MyThreadPool(5, 8, 2);
+        MyThreadPool myThreadPool = new MyThreadPool(5, 8, 2);//初始化线程池
         ServerSocket serverSocket = new ServerSocket(9988);
         while (true) {
-            Socket accept = serverSocket.accept();
+            Socket accept = serverSocket.accept();//阻塞操作
             System.out.println("等待客户端传输消息");
+            //使用线程池管理服务端的线程
             myThreadPool.executeThreadWithPool(() -> {
                 try {
                     InputStream inputStream = accept.getInputStream();
