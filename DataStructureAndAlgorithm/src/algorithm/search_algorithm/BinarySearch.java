@@ -24,42 +24,50 @@ public class BinarySearch {
         int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         BinarySearch binarySearch = new BinarySearch();
         System.out.println(binarySearch.binarySearch(nums, 0, nums.length - 1, 9));
-        System.out.println(binarySearch.binarySearch(nums, 6));
+        System.out.println(binarySearch.binarySearch(nums, 1));
     }
 
     //递归方法
     public int binarySearch(int[] nums, int left, int right, int value) {
-        if(left > right){//递归结束条件
+        if (right < left){
+            //递归的结束条件
             return -1;
         }
-        int mid = ((right - left) / 2) + left;
-        if(nums[mid] == value){
-            //找到了
-            return mid;
-        }else if(nums[mid] < value){
-            //值在数组的右岸
-            return binarySearch(nums,mid + 1,right,value);
-        }else{
-            //值在数组的左岸
-            return binarySearch(nums,left,mid - 1,value);
+        int middle = ((right - left) >> 1) + left;
+        if (value < nums[middle]){
+            //value将在数组的左侧
+            return binarySearch(nums,left,middle - 1,value);
+        }else if(value > nums[middle]){
+            //value将在数组的右侧
+            return binarySearch(nums,middle + 1,right,value);
+        }else {
+            return middle;
         }
     }
 
 
     //非递归
     public int binarySearch(int[] nums, int value) {
-        int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
-            int mid = (right - left) / 2 + left;
-            if (nums[mid] == value) {
-                return mid;
-            } else if (nums[mid] < value) {
-                left = mid + 1;
+        //如果目标值不在数组的范围内则直接返回-1（判断目标值是否比最小的小比最大的大即表明不在数组范围内）
+        if (value < nums[0] && value > nums[nums.length - 1]) {
+            return -1;
+        }
+        int leftIndex = 0;//最左元素的指针
+        int rightIndex = nums.length - 1;//最有元素的指针
+        while (leftIndex <= rightIndex) {
+            int middle = ((rightIndex - leftIndex) >> 1) + leftIndex;//数组的中间元素指针
+            if (value > nums[middle]) {
+                //表明目标值在数组的右侧
+                leftIndex = middle + 1;
+            } else if (value < nums[middle]) {
+                //表明目标值在数组的左侧
+                rightIndex = middle - 1;
             } else {
-                right = mid - 1;
+                //中间值就是目标值 直接返回
+                return middle;
             }
         }
+        //循环结束表明没找到则返回-1
         return -1;
     }
 
@@ -71,7 +79,7 @@ public class BinarySearch {
      */
     @Test
     public void test2() {
-        int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7,7,7,7,7,8, 9};
+        int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 8, 9};
         List<Integer> integers = BinarySearch2(nums, 7);
         System.out.println(integers);
 
@@ -98,23 +106,23 @@ public class BinarySearch {
                 //目标也许不止一个 找到一个后继续进行左右的搜索 找到所有的
                 //向左边搜索
                 int temp = middle - 1;
-                while(true){
-                    if (temp < left || nums[temp] != target){
+                while (true) {
+                    if (temp < left || nums[temp] != target) {
                         break;
-                    }else {
+                    } else {
                         list.add(temp);
-                        temp-=1;
+                        temp -= 1;
                     }
                 }
                 list.add(middle);
                 //向右边搜索
                 int temp1 = middle + 1;
-                while(true){
-                    if(temp1 > right || nums[temp1] != target){
+                while (true) {
+                    if (temp1 > right || nums[temp1] != target) {
                         break;
-                    }else {
+                    } else {
                         list.add(temp1);
-                        temp1+=1;
+                        temp1 += 1;
                     }
                 }
                 return list;
