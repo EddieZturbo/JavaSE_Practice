@@ -20,6 +20,7 @@ public class ServerZero {
         serverSocketChannel.bind(new InetSocketAddress(9956));//binding a port
         Selector selector = Selector.open();//obtain a selector
 
+        System.out.println("ServerZero Ready");
         //register channel to selector and indicate accept events
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (selector.select() > 0){
