@@ -156,6 +156,7 @@ public class QuickSort {
         }
     }
 
+
     public void quickSort(int[] nums, int leftIndex, int rightIndex) {
         if (leftIndex > rightIndex) {
             return;
@@ -176,8 +177,8 @@ public class QuickSort {
         nums[left] = middle;
 
         //recursion
-        quickSort(nums, leftIndex, left - 1);
-        quickSort(nums, left + 1, rightIndex);
+        quickSort(nums, leftIndex, left - 1);//left section
+        quickSort(nums, left + 1, rightIndex);//right section
 
 
     }
