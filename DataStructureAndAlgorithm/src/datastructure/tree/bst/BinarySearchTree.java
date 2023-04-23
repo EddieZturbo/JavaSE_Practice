@@ -136,20 +136,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public static void main(String[] args) {
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(1);
-        binarySearchTree.insert(2);
-        binarySearchTree.insert(3);
         binarySearchTree.insert(4);
-        binarySearchTree.insert(5);
+        binarySearchTree.insert(2);
         binarySearchTree.insert(6);
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(5);
         binarySearchTree.insert(7);
 //        binarySearchTree.insert(2);
 //        binarySearchTree.insert(4);
 //        binarySearchTree.insert(13);
 //        binarySearchTree.insert(9);
 
-        //中序遍历
-        binarySearchTree.inOrder(binarySearchTree.mRoot);
+        binarySearchTree.postOrder(binarySearchTree.mRoot);
 
     }
 }
